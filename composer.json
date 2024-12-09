@@ -1,7 +1,11 @@
 {
-    "name": "lightspeeddevelopment/lsx",
+    "name": "lightspeedwp/lsx-design",
     "description": "is a minimalistic WordPress theme that allows users to create fast, efficient and attractive websites that are feature-rich. The theme displays perfectly on all desktop and portable devices.",
     "type": "wordpress-theme",
+    "keywords": [
+		"WordPress",
+		"Themes"
+	],
     "require": {
         "php": ">=8.0",
         "composer/installers": "^2.0.0"
@@ -29,5 +33,18 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "johnpbloch/wordpress-core-installer": true
         }
-    }
+    },
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.10",
+		"wp-coding-standards/wpcs": "^3.1"
+	},
+	"scripts": {
+		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+		"lint": "phpcs --standard=phpcs.xml.dist"
+	}
 }

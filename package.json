@@ -1,23 +1,51 @@
 {
   "name": "lsx-design",
-  "version": "1.4.0",
+  "version": "1.5.0",
+  "private": false,
   "description": "is a light-weight, minimalistic and responsive WordPress theme that allows users to create fast, efficient and attractive websites that are feature-rich. We've built it to be fully compatible with WooCommerce, making it an ideal choice for your next eCommerce build. Its lightweight build ensures better load times, a bonus for both user experience and SEO.",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lightspeedwp/lsx"
+    "url": "git+https://github.com/lightspeedwp/lsx-design.git"
   },
   "keywords": [
-    "lsx"
-  ],
+    "WordPress",
+    "theme",
+    "LSX Design"
+],
+  "homepage": "https://github.com/LightspeedWP/lsx-design#readme",
   "author": "LightSpeed",
-  "license": "GPLv3 or later",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/lightspeedwp/lsx/issues"
+    "url": "https://github.com/lightspeedwp/lsx-design/issues"
   },
   "scripts": {
     "build-pot": "wp i18n make-pot . languages/lsxd.pot",
     "build-mopo": "rm -R languages/en_EN.mo && cp languages/lsxd.pot languages/en_EN.po && wp i18n make-mo languages",
     "translate-US": "cp languages/en_EN.po languages/en_US.po && cp languages/en_EN.mo languages/en_US.mo"
   }	
+  "engines": {
+      "node": ">=20.10.0",
+      "npm": ">=10.2.3"
+  },
+  "devDependencies": {
+      "@wordpress/stylelint-config": "^22.5.0",
+      "ajv": "^8.17.1",
+      "ajv-draft-04": "^1.0.0",
+      "chalk": "^5.3.0",
+      "fast-glob": "^3.3.2",
+      "parse5-html-rewriting-stream": "^7.0.0",
+      "semver": "^7.6.3",
+      "string-progressbar": "^1.0.4",
+      "stylelint": "^14.16.1",
+      "table": "^6.8.2"
+  },
+  "scripts": {
+      "lint:css": "stylelint **/*.css -i .gitignore",
+      "lint:css:fix": "stylelint **/*.css -i .gitignore --fix",
+      "lint:php": "composer run-script lint",
+      "lint:php:fix": "composer run-script format",
+      "lint:theme": "node theme-utils.mjs validate-theme",
+      "lint:patterns:fix": "node theme-utils.mjs escape-patterns --text-domain=twentytwentyfive"
+  }
 }

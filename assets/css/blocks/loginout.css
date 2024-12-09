@@ -7,6 +7,7 @@ form#loginform input{
     line-height: 1.33333;
     border-radius: 6px;
     display:block;
+    box-sizing: border-box;
 }
 form#loginform input#rememberme{
     display: inline-flex;

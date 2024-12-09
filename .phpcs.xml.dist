@@ -1,18 +1,26 @@
 <?xml version="1.0"?>
 <ruleset
-    name="WordPress-LSX"
+    name="WordPress-LSX-Design"
     namespace="WordPressCS\WordPress"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd"
 >
-    <description>Coding standards</description>
+    <description>WordPress Coding Standards for HTML and PHP files in the project.</description>
+    
+    <rule ref="WordPress"/>
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
 
+    <!-- Paths to exclude from the scan -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>assets/*</exclude-pattern>
+    <exclude-pattern>styles/*</exclude-pattern>
+
+    <!-- Paths to scan -->
     <file>.</file>
-    <exclude-pattern>/tests/</exclude-pattern>
-    <exclude-pattern>/vendor/</exclude-pattern>
-    <exclude-pattern>/wordpress/</exclude-pattern>
-    <exclude-pattern>/wp-content/</exclude-pattern>
-    <exclude-pattern>/dependencies/</exclude-pattern>
+
 
     <arg name="extensions" value="php" />
     <arg name="basepath" value="./" />
